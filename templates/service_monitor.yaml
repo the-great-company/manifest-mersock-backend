@@ -6,6 +6,8 @@ metadata:
   labels:
     release: prometheus-operator
 spec:
+  namespaceSelector:
+    any: true
   selector:
     matchLabels:
       {{- include "webapp.selectorLabels" . | nindent 7 }}
