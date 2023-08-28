@@ -1,0 +1,25 @@
+enabled: false
+replicaCount: 1
+
+image:
+  repository: harbor.papermint.io/knight/mersock-backend
+  tag: "latest"
+
+prometheus:
+  scrape: true
+  port: 8080
+  path: /metric
+
+imagePullSecrets: 
+- name: regcred
+
+service:
+  targetPort: 8080
+
+resources: 
+  limits:
+    cpu: 2.5
+    memory: 512Mi
+  requests:
+    cpu: 1.5
+    memory: 256Mi

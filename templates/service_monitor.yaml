@@ -1,0 +1,15 @@
+{{- if .Values.enabled -}}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "webapp.fullname" . }}
+  labels:
+    release: prometheus-operator
+spec:
+  selector:
+    matchLabels:
+      {{- include "webapp.selectorLabels" . | nindent 7 }}
+  endpoints:
+    - port: http-traffic
+      path: {{ .Values.prometheus.path }}
+{{- end }}
