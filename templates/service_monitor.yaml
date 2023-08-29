@@ -4,7 +4,7 @@ kind: ServiceMonitor
 metadata:
   name: {{ include "webapp.fullname" . }}
   labels:
-    release: prometheus-operator
+    release: monitoring
 spec:
   selector:
     matchLabels:
