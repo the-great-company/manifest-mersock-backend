@@ -8,7 +8,7 @@ image:
 prometheus:
   scrape: true
   port: 8080
-  path: /metric
+  path: /metrics
 
 imagePullSecrets: 
 - name: regcred
