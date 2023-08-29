@@ -7,7 +7,8 @@ metadata:
     release: monitoring
 spec:
   namespaceSelector:
-    any: true
+    matchNames:
+    - monitoring
   selector:
     matchLabels:
       {{- include "webapp.selectorLabels" . | nindent 7 }}
